@@ -1,33 +1,28 @@
-﻿string name = "Maria";
-string gender;
-int age = 17;
-string result1 = name + " jest niepełnoletnim mężczyzną";
-string result2 = name + " jest pełnoletnim mężczyzną";
-string result3 = name + " jest pełnoletnią kobietą";
-string result4 = name + " jest niepełnoletnią kobietą";
+﻿int[] counter = new int[10];
+int number = 4566;
 
-if (name.EndsWith('a') && name != "Kuba")
+string numberAsString =  number.ToString();
+char[] letters = numberAsString.ToArray();
+
+
+ foreach (char letter in letters)
 {
-    gender = "kobieta";
-}
-else
-{
-    gender = "mężczyzna";
+    if (letter == '0') counter[0]++;
+    else if (letter == '1') counter[1]++;
+    else if (letter == '2') counter[2]++;
+    else if (letter == '3') counter[3]++;
+    else if (letter == '4') counter[4]++;
+    else if (letter == '5') counter[5]++;
+    else if (letter == '6') counter[6]++;
+    else if (letter == '7') counter[7]++;
+    else if (letter == '8') counter[8]++;
+    else if (letter == '9') counter[9]++;
+    
 }
 
-if (gender == "mężczyzna" && age < 18)
+for (int i=0; i < counter.Length; i++)
 {
-    Console.WriteLine(result1);
+    Console.WriteLine(i + " => " + counter[i]);
 }
-else if (gender == "mężczyzna" && age >= 18)
-{
-    Console.WriteLine(result2);
-}
-else if (gender == "kobieta" && age >= 18)
-{
-    Console.WriteLine(result3);
-}
-else
-{
-    Console.WriteLine(result4);
-}
+
+
