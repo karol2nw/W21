@@ -36,7 +36,13 @@ namespace W21
             score.Add(Score);
         }
         
-       public void ShowScore()
+        public void SubstractScore(int Score)
+        {
+            score.Add(-Score);
+        }
+        
+        
+        public void ShowScore()
         {
             Console.WriteLine(this.Result);
         }  
