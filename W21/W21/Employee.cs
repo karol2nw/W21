@@ -1,4 +1,6 @@
-﻿namespace W21
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace W21
 {
     public class Employee
     {
@@ -72,6 +74,32 @@
                 statistic.AverageValue += rate;
 
             }
+
+            int i;
+            for (i = 0; i < rates.Count; i++)
+            {
+                statistic.MaxValue = Math.Max(statistic.MaxValue, rates[i]);
+                statistic.MinValue = Math.Min(statistic.MinValue, rates[i]);
+                statistic.AverageValue += rates[i];
+            }
+
+            while (i < rates.Count)
+            {
+                statistic.MaxValue = Math.Max(statistic.MaxValue, rates[i]);
+                statistic.MinValue = Math.Min(statistic.MinValue, rates[i]);
+                statistic.AverageValue += rates[i];
+                i++;           
+            }
+
+            do
+            {
+                statistic.MaxValue = Math.Max(statistic.MaxValue, rates[i]);
+                statistic.MinValue = Math.Min(statistic.MinValue, rates[i]);
+                statistic.AverageValue += rates[i];
+                i++;
+            
+            }while (i < rates.Count);
+
 
             statistic.AverageValue /= rates.Count;
 
