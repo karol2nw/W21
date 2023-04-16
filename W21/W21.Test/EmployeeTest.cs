@@ -6,14 +6,14 @@ namespace W21.Test
         [Test]
         public void EmployeeSumScoreTest()
         {
-            var employee = new Employee("Gostek","Testowy",20);
+            var employee = new Employee("Gostek", "Testowy");
 
-            employee.AddScore(5);
-            employee.AddScore(3);
-            employee.AddScore(7);
+            employee.AddRate(5);
+            employee.AddRate(3);
+            employee.AddRate(9);   
+            
 
-
-            Assert.AreEqual(15, employee.Result);
+            Assert.AreEqual(17, employee.Result);
         
         
         }
@@ -21,11 +21,11 @@ namespace W21.Test
         [Test]
         public void EmployeeSbstractScoreTest()
         {
-            var employee = new Employee("Gostek", "Testowy", 20);
+            var employee = new Employee("Gostek", "Testowy");
 
-            employee.SubstractScore(5);
-            employee.AddScore(9);
-            employee.AddScore(7);
+            employee.SubstractRate(5);
+            employee.AddRate(9);
+            employee.AddRate(7);
 
 
             Assert.AreEqual(11, employee.Result);

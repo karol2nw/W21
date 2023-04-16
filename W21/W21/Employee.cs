@@ -1,51 +1,65 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading.Tasks.Sources;
-
-namespace W21
+﻿namespace W21
 {
     public class Employee
     {
-        
+
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
-        public int Age { get; private set; }
-        
-        private List<int> score = new List<int>();
+      
+
+        private List<int> rates = new List<int>();
         public int Result
 
         {
             get
             {
-                return score.Sum();
+                return rates.Sum();
             }
-        
+
         }
-       
-       public  Employee(string FirstName,string LastName, int Age)
-       {
+
+        public Employee(string FirstName, string LastName)
+        {
             this.FirstName = FirstName;
             this.LastName = LastName;
-            this.Age = Age;
-       }
-        public void AddScore(int Score)
-        {
-            score.Add(Score);
+          
         }
-        
-        public void SubstractScore(int Score)
+        public void AddRate(int Rate)
         {
-            score.Add(-Score);
+            rates.Add(Rate);
         }
-        
-        
-        public void ShowScore()
+
+        public void SubstractRate(int Rate)
         {
-            Console.WriteLine(this.Result);
-        }  
+            rates.Add(-Rate);
+        }
+
+        public Statistics GetStatistics()
+        {
+            var statistic = new Statistics();
+            statistic.MaxValue = float.MinValue;
+            statistic.MinValue = float.MaxValue;
+            statistic.AverageValue = 0;
+
+            foreach (var rate in rates)
+            {
+
+                statistic.MaxValue = Math.Max(statistic.MaxValue, rate);
+                statistic.MinValue = Math.Min(statistic.MinValue, rate);
+                statistic.AverageValue += rate;
+
+            }
+
+            statistic.AverageValue /= rates.Count;
+
+
+            return statistic;
+        }
+
+
+
+
+        
 
     }
 }
