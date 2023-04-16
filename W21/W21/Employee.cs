@@ -5,10 +5,9 @@
 
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
-      
 
-        private List<int> rates = new List<int>();
-        public int Result
+        private List<float> rates = new List<float>();
+        public float Result
 
         {
             get
@@ -17,23 +16,47 @@
             }
 
         }
-
         public Employee(string FirstName, string LastName)
         {
             this.FirstName = FirstName;
             this.LastName = LastName;
-          
+
+        }
+        public void AddRate(float Rate)
+        {
+            if (Rate >= 0 && Rate <= 100)
+                
+            {
+                rates.Add(Rate);
+            }
+            else
+            {
+                Console.WriteLine("out of range");
+            }
+        }
+        public void AddRate(string Rate)
+        {
+            float.TryParse(Rate, out float result);
+            this.AddRate(result);
         }
         public void AddRate(int Rate)
         {
-            rates.Add(Rate);
+            this.AddRate((float)Rate);
+        }
+        public void AddRate(decimal Rate)
+        {
+            this.AddRate((float)Rate);
+        }
+        public void AddRate(byte Rate)
+        {
+            this.AddRate((float)Rate);
         }
 
-        public void SubstractRate(int Rate)
+        public void SubstractRate(float Rate)
         {
             rates.Add(-Rate);
         }
-
+        
         public Statistics GetStatistics()
         {
             var statistic = new Statistics();
@@ -52,14 +75,8 @@
 
             statistic.AverageValue /= rates.Count;
 
-
             return statistic;
         }
-
-
-
-
-        
 
     }
 }
