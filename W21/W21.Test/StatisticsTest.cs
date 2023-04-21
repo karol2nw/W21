@@ -5,52 +5,45 @@
 
 
         [Test]
-        public void StatisticMaxValueTest()
+        public void StatisticMaxValueTestByChar()
         {
             var employee = new Employee("Gostek", "Testowy");
 
-            employee.AddRate(5);
-            employee.AddRate(10);
-            employee.AddRate(3);
+            employee.AddRate('b');
+            employee.AddRate('e');
+            employee.AddRate('C');
 
             var statistic1 = employee.GetStatistics();
 
-
-            Assert.AreEqual(10, statistic1.MaxValue);
-
-
+            Assert.AreEqual(80, statistic1.MaxValue);
         }
 
         [Test]
-        public void StatisticMinValueTest()
+        public void StatisticMinValueTestByChar()
         {
             var employee = new Employee("Gostek", "Testowy");
 
-            employee.AddRate(5);
-            employee.AddRate(10);
-            employee.AddRate(3);
+            employee.AddRate('a');
+            employee.AddRate('D');
+            employee.AddRate('c');
 
             var statistic1 = employee.GetStatistics();
 
-
-            Assert.AreEqual(3, statistic1.MinValue);
-
-
+            Assert.AreEqual(40, statistic1.MinValue);
         }
-
+       
         [Test]
         public void StatisticAverageValueTest()
         {
             var employee = new Employee("Gostek", "Testowy");
 
-            employee.AddRate(5);
-            employee.AddRate(10);
-            employee.AddRate(3);
+            employee.AddRate('B');
+            employee.AddRate('E');
+            employee.AddRate('e');
 
             var statistic1 = employee.GetStatistics();
 
-
-            Assert.AreEqual(6, statistic1.AverageValue);
+            Assert.AreEqual(40, statistic1.AverageValue);
 
 
         }

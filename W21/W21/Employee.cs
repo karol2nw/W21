@@ -1,6 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace W21
+﻿namespace W21
 {
     public class Employee
     {
@@ -27,7 +25,7 @@ namespace W21
         public void AddRate(float Rate)
         {
             if (Rate >= 0 && Rate <= 100)
-                
+
             {
                 rates.Add(Rate);
             }
@@ -41,24 +39,40 @@ namespace W21
             float.TryParse(Rate, out float result);
             this.AddRate(result);
         }
-        public void AddRate(int Rate)
+        
+        public void AddRate(char Rate)
         {
-            this.AddRate((float)Rate);
-        }
-        public void AddRate(decimal Rate)
-        {
-            this.AddRate((float)Rate);
-        }
-        public void AddRate(byte Rate)
-        {
-            this.AddRate((float)Rate);
+            switch (Rate)
+            {
+                case 'A':
+                case 'a':
+                    rates.Add(100);
+                    break;
+
+                case 'B':
+                case 'b':
+
+                    rates.Add(80);
+                    break;
+
+                case 'C':
+                case 'c':
+                    rates.Add(60);
+                    break;
+
+                case 'D':
+                case 'd':
+                    rates.Add(40);
+                    break;
+
+                case 'E':
+                case 'e':
+                    rates.Add(20);
+                    break;
+
+            }
         }
 
-        public void SubstractRate(float Rate)
-        {
-            rates.Add(-Rate);
-        }
-        
         public Statistics GetStatistics()
         {
             var statistic = new Statistics();
@@ -75,33 +89,28 @@ namespace W21
 
             }
 
-            int i;
-            for (i = 0; i < rates.Count; i++)
-            {
-                statistic.MaxValue = Math.Max(statistic.MaxValue, rates[i]);
-                statistic.MinValue = Math.Min(statistic.MinValue, rates[i]);
-                statistic.AverageValue += rates[i];
-            }
-
-            while (i < rates.Count)
-            {
-                statistic.MaxValue = Math.Max(statistic.MaxValue, rates[i]);
-                statistic.MinValue = Math.Min(statistic.MinValue, rates[i]);
-                statistic.AverageValue += rates[i];
-                i++;           
-            }
-
-            do
-            {
-                statistic.MaxValue = Math.Max(statistic.MaxValue, rates[i]);
-                statistic.MinValue = Math.Min(statistic.MinValue, rates[i]);
-                statistic.AverageValue += rates[i];
-                i++;
-            
-            }while (i < rates.Count);
-
-
             statistic.AverageValue /= rates.Count;
+
+            switch (statistic.AverageValue)
+            {
+                case var average when average >= 80:
+                    statistic.AverageLetter = 'A';
+                    break;
+                case var average when average >= 60:
+                    statistic.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    statistic.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    statistic.AverageLetter = 'D';
+                    break;
+                case var average when average >= 0:
+                    statistic.AverageLetter = 'E';
+                    break;
+            }
+
+
 
             return statistic;
         }
