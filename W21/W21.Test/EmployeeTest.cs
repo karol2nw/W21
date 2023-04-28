@@ -13,7 +13,7 @@ namespace W21.Test
             employee.AddRate(9);
 
 
-            Assert.AreEqual(17, employee.Result);
+            Assert.AreEqual(17, employee.result);
 
 
         }
