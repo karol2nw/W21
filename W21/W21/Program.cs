@@ -2,9 +2,17 @@
 
 Employee employee1 = new Employee ("Andrzej","Kowalski");
 
+
+
 Console.WriteLine("Program do oceny pracowników");
 Console.WriteLine("============================");
 Console.WriteLine("aby zakończyć działanie programu wciśnij 'q' ");
+Console.WriteLine("aby ocenić pracownika wciśnij '1' ");
+Console.WriteLine("aby ocenić kierownika wciśnij '2");
+
+
+
+
 
 do
 {

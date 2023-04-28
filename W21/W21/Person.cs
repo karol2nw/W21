@@ -5,13 +5,13 @@ namespace W21
     public abstract class Person
     {
        public string FirstName {  get; private set; }
-       public string Lastname { get; private set; }
+       public string LastName { get; private set; }
 
-        public Person(string Name, string LastName)
+        public Person(string firstName, string lastName)
         {
-            this.FirstName = Name;
+            this.FirstName = firstName;
 
-            this.Lastname = LastName;
+            this.LastName = lastName;
         }
 
     }
