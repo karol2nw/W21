@@ -1,10 +1,10 @@
 ﻿namespace W21
 {
-    public class Employee
+    public class Employee : Person
+
     {
 
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
+       
 
         private List<float> rates = new List<float>();
         public float Result
@@ -17,9 +17,9 @@
 
         }
         public Employee(string FirstName, string LastName)
+           : base(FirstName,LastName)        
         {
-            this.FirstName = FirstName;
-            this.LastName = LastName;
+            
 
         }
         public void AddRate(float Rate)
