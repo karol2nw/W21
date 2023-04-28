@@ -31,13 +31,25 @@
             }
             else
             {
-                Console.WriteLine("out of range");
+                throw new Exception("out of range");
             }
         }
         public void AddRate(string Rate)
         {
-            float.TryParse(Rate, out float result);
-            this.AddRate(result);
+           if( float.TryParse(Rate, out float result))
+           {
+                this.AddRate(result);
+           }
+           else if(char.TryParse(Rate, out char letter))
+            {
+                this.AddRate(letter);
+
+            }
+            
+            else
+           {
+                throw new Exception("invalid string value");
+           }
         }
         
         public void AddRate(char Rate)
@@ -69,6 +81,9 @@
                 case 'e':
                     rates.Add(20);
                     break;
+
+                default:
+                    throw new Exception("wrong letter");
 
             }
         }
@@ -108,12 +123,11 @@
                 case var average when average >= 0:
                     statistic.AverageLetter = 'E';
                     break;
+                default:
+                    throw new Exception("invalid letter");
             }
-
-
 
             return statistic;
         }
-
     }
 }
