@@ -7,7 +7,7 @@
         [Test]
         public void StatisticMaxValueTestByChar()
         {
-            var employee = new Employee("Gostek", "Testowy");
+            var employee = new EmployeeInMemory("Gostek", "Testowy");
 
             employee.AddRate('b');
             employee.AddRate('e');
@@ -21,7 +21,7 @@
         [Test]
         public void StatisticMinValueTestByChar()
         {
-            var employee = new Employee("Gostek", "Testowy");
+            var employee = new EmployeeInMemory("Gostek", "Testowy");
 
             employee.AddRate('a');
             employee.AddRate('D');
@@ -35,7 +35,7 @@
         [Test]
         public void StatisticAverageValueTest()
         {
-            var employee = new Employee("Gostek", "Testowy");
+            var employee = new EmployeeInMemory("Gostek", "Testowy");
 
             employee.AddRate('B');
             employee.AddRate('E');

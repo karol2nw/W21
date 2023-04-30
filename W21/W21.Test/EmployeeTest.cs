@@ -6,7 +6,7 @@ namespace W21.Test
         [Test]
         public void EmployeeSumScoreTest()
         {
-            var employee = new Employee("Gostek", "Testowy");
+            var employee = new EmployeeInMemory("Gostek", "Testowy");
 
             employee.AddRate(5);
             employee.AddRate(3);

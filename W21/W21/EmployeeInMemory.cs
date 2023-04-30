@@ -1,6 +1,6 @@
 ﻿namespace W21
 {
-    public class Employee :  Person , IEmployee
+    public class EmployeeInMemory : EmployeeBase 
 
     {
 
@@ -16,13 +16,13 @@
             }
 
         }
-        public Employee(string firstName, string lastName)
+        public EmployeeInMemory(string firstName, string lastName)
            :base(firstName,lastName)        
         {
             
 
         }
-        public void AddRate(float rate)
+        public override void AddRate(float rate)
         {
             if (rate >= 0 && rate <= 100)
 
@@ -34,7 +34,7 @@
                 throw new Exception("out of range");
             }
         }
-        public void AddRate(string rate)
+        public override void AddRate(string rate)
         {
            if( float.TryParse(rate, out float result))
            {
@@ -52,7 +52,7 @@
            }
         }
         
-        public void AddRate(char rate)
+        public override void AddRate(char rate)
         {
             switch (rate)
             {
@@ -88,7 +88,7 @@
             }
         }
 
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var statistic = new Statistics();
             statistic.MaxValue = float.MinValue;
