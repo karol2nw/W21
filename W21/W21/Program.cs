@@ -18,7 +18,6 @@ employee1.RateAdded += RateAdded;
 void RateAdded(object sender, EventArgs args)
 {
     Console.WriteLine("Dodano nową ocenę");
-
 }
 
 do
@@ -29,7 +28,7 @@ do
 
     try
     {
-        employee1.AddRate(input);
+        employee1.AddRate(input);                
     }
     catch (Exception e)
     {
@@ -40,6 +39,7 @@ do
     {
         break;
     }
+
 
 } while (true);
 
