@@ -36,7 +36,6 @@
             else if (char.TryParse(rate, out char letter))
             {
                 this.AddRate(letter);
-
             }
             else
             {
@@ -79,7 +78,6 @@
 
                 default:
                     throw new Exception("wrong letter");
-
             }
         }
         public override Statistics GetStatistics()

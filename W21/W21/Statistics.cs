@@ -41,7 +41,7 @@
             Count = 0;
         }
 
-        internal void AddRate(float rate)
+        public void AddRate(float rate)
         {
             Sum += rate;
             Count++;
