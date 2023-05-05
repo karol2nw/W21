@@ -1,7 +1,7 @@
 ﻿
 namespace W21
 {
-    public class SuperVisior : Person, IEmployee
+    public class SuperVisior : EmployeeBase
     {
         public SuperVisior(string firstName, string lastName)
         : base(firstName, lastName)
@@ -19,7 +19,7 @@ namespace W21
         }
 
 
-        public void AddRate(float rate)
+        public override void AddRate(float rate)
         {
             if (rate >= 0 && rate <= 100)
             {
@@ -31,7 +31,7 @@ namespace W21
             }
         }
 
-        public void AddRate(string rate)
+        public override void AddRate(string rate)
         {
             switch (rate)
             {
@@ -106,7 +106,7 @@ namespace W21
                 throw new Exception("invalid letter");
             }
         }
-        public void AddRate(char letter)
+        public override void AddRate(char letter)
         {
             switch (letter)
             {
@@ -137,7 +137,7 @@ namespace W21
             }
         }
 
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var statistic = new Statistics();
 
