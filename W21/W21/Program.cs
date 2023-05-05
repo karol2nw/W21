@@ -1,12 +1,12 @@
 ﻿using W21;
 
-EmployeeInFile employee1 = new EmployeeInFile ("Andrzej","Kowalski");
+var employee1 = new EmployeeInMemory ("Andrzej","Kowalski");
 
 
 
 Console.WriteLine("program do oceny pracowników");
 Console.WriteLine("============================");
-Console.WriteLine("aby zakończyć działanie programu wciśnij 'q' ");
+Console.WriteLine("aby zakończyć wpisywanie ocen programu wciśnij 'q' ");
 
 
 
@@ -44,7 +44,11 @@ do
 } while (true);
 
 var statistic = employee1.GetStatistics();
-Console.WriteLine(statistic.MinValue);
+Console.WriteLine($"impljec1 : {statistic.MinValue}");
+Console.WriteLine($"impljec1 : {statistic.Sum}");
+Console.WriteLine($"impljec1 : {statistic.AverageValue}");
+Console.WriteLine($"impljec1 : {statistic.AverageLetter}");
+
 
 
 

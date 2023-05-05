@@ -6,15 +6,7 @@
 
 
         private List<float> rates = new List<float>();
-        public float result
-
-        {
-            get
-            {
-                return rates.Sum();
-            }
-
-        }
+        
         public EmployeeInMemory(string firstName, string lastName)
            : base(firstName, lastName)
         {
@@ -82,6 +74,9 @@
                     rates.Add(20);
                     break;
 
+                case 'q':
+                    break;
+
                 default:
                     throw new Exception("wrong letter");
 
@@ -89,44 +84,12 @@
         }
         public override Statistics GetStatistics()
         {
-            var statistic = new Statistics();
-            statistic.MaxValue = float.MinValue;
-            statistic.MinValue = float.MaxValue;
-            statistic.AverageValue = 0;
-
-            foreach (var rate in rates)
-            {
-
-                statistic.MaxValue = Math.Max(statistic.MaxValue, rate);
-                statistic.MinValue = Math.Min(statistic.MinValue, rate);
-                statistic.AverageValue += rate;
-
-            }
-
-            statistic.AverageValue /= rates.Count;
-
-            switch (statistic.AverageValue)
-            {
-                case var average when average >= 80:
-                    statistic.AverageLetter = 'A';
-                    break;
-                case var average when average >= 60:
-                    statistic.AverageLetter = 'B';
-                    break;
-                case var average when average >= 40:
-                    statistic.AverageLetter = 'C';
-                    break;
-                case var average when average >= 20:
-                    statistic.AverageLetter = 'D';
-                    break;
-                case var average when average >= 0:
-                    statistic.AverageLetter = 'E';
-                    break;
-                default:
-                    throw new Exception("invalid letter");
-            }
-
-            return statistic;
+            var statistics = new Statistics();
+             foreach (var rate in rates)
+             {
+                statistics.AddRate(rate);                   
+             }
+            return statistics;
         }
     }
 }

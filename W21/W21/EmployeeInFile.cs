@@ -116,43 +116,12 @@
         {
             var statistics = new Statistics();
 
-            statistics.AverageValue = 0;
-            statistics.MaxValue = float.MinValue;
-            statistics.MinValue = float.MaxValue;
-
             foreach (var rate in rates)
-            {                                
-                    statistics.MaxValue = Math.Max(statistics.MaxValue, rate);
-                    statistics.MinValue = Math.Min(statistics.MinValue, rate);
-                    statistics.AverageValue += rate;                
+            {
+                statistics.AddRate(rate);
             }
-                statistics.AverageValue /= rates.Count;
-
-                switch (statistics.AverageValue)
-                {
-                    case var average when average >= 80:
-                        statistics.AverageLetter = 'A';
-                        break;
-                    case var average when average >= 60:
-                        statistics.AverageLetter = 'B';
-                        break;
-                    case var average when average >= 40:
-                        statistics.AverageLetter = 'C';
-                        break;
-                    case var average when average >= 20:
-                        statistics.AverageLetter = 'D';
-                        break;
-                    case var average when average >= 0:
-                        statistics.AverageLetter = 'E';
-                        break;
-                    default:
-                        throw new Exception("invalid letter");
-                }                                    
+            
             return statistics;
         }
-
-
-
-
     }
 }
